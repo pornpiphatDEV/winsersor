@@ -27,22 +27,54 @@ body{
       text-align: center;
       color: rgb(199, 34, 13);
   }
+  h2{
+      text-align: center;
+      color: rgb(155, 76, 65);
+  }
 </style>
 
 <body >
   <div class="border border-light p-3 mb-4">
-  
      <h1>wind speed</h1>
-    
-  
   </div>
 
-  <div id="chart" width="400" height="400"></div>
-  <div class="text-center">
-    <button class="btn btn-danger" onclick="backdata()">Backdata</button>
-    <button class="btn btn-primary" onclick="nextdata()">Nextdata</button>
-   
+
+<div class="container">
+<div class="row">
+  <div class="col-6 chart"> 
+    <h2>กราฟรายวัน</h2>
+    <div id="chart" width="400" height="400"></div>
+    <div class="text-center">
+      <button class="btn btn-danger" onclick="backdata()">ย้อนกลับ</button>
+      <button class="btn btn-primary" onclick="nextdata()">ต่อไป</button>
+     
+    </div>
   </div>
+  <div class="col-6 chart"> 
+    <h2>กราฟรายสัปดาห์</h2>
+    <div id="chart2" width="400" height="400"></div>
+    <div class="text-center">
+      <button class="btn btn-danger" onclick="backdata()">ย้อนกลับ</button>
+      <button class="btn btn-primary" onclick="nextdata()">ต่อไป</button>
+     
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-6 chart"> 
+    <h2>กราฟรายเดือน</h2>
+    <div id="chart3" width="400" height="400"></div>
+    <div class="text-center">
+      <button class="btn btn-danger" onclick="backdata()">ย้อนกลับ</button>
+      <button class="btn btn-primary" onclick="nextdata()">ต่อไป</button>
+     
+    </div>
+  </div>
+  
+</div>
+
+</div>
 
 <script src="./js/index.js"></script>
 
@@ -104,8 +136,36 @@ body{
             categories: timeStemp
           }
         }
+        var options2 = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: windSpeed
+          }],
+          xaxis: {
+            categories: timeStemp
+          }
+        }
+        var options3 = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: windSpeed
+          }],
+          xaxis: {
+            categories: timeStemp
+          }
+        }
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+        var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+        chart2.render();
+        var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+        chart3.render();
       });
   }
 
@@ -134,6 +194,10 @@ body{
     }
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+    chart2.render();
+    var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+    chart3.render();
   }
 
 
@@ -160,6 +224,10 @@ body{
     }
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+    chart2.render();
+    var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+    chart3.render();
   }
 
 </script>
